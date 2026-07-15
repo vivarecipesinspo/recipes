@@ -1,247 +1,123 @@
-/* Import font dari Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-/* Reset dan Pengaturan Dasar */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px; 
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #fcfaf8; 
+    color: #333333;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+/* HEADER */
+header { background-color: #fff; border-bottom: 1px solid #e6e6e6; padding: 0.8rem 0; }
+header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo-link { text-decoration: none; }
+.logo { font-size: 1.6rem; font-weight: 700; color: #d35400; letter-spacing: -0.5px; }
+nav ul { list-style: none; display: flex; gap: 1.2rem; }
+nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+nav a:hover { color: #d35400; }
+
+/* HERO SECTION */
+.hero { background-color: #fff3e0; padding: 2rem 0; text-align: center; margin-bottom: 1.5rem; }
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.6rem; color: #222; line-height: 1.2; }
+.hero p { font-size: 1.05rem; color: #555; max-width: 800px; margin: 0 auto; }
+
+/* GRID CONTENT (HOME) */
+.content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.content-card { background-color: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.content-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.content-card a { text-decoration: none; color: inherit; display: block; }
+.content-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.content-card-body { padding: 12px 14px; }
+.content-card-body h3 { font-size: 1.05rem; margin-bottom: 0; color: #333; line-height: 1.4; font-weight: 600; }
+
+/* DETAIL ARTICLE - MAIN CONTAINERS */
+.main-article { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 20px 0; }
+.main-article h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; color: #222; text-transform: capitalize;}
+.detail-image img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.article-content { font-size: 1.05rem; color: #333; }
+
+/* API RECIPE PROFESSIONAL LAYOUT */
+.recipe-meta { display: flex; gap: 12px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
+.recipe-meta .badge { background: #ffe0b2; color: #d35400; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;}
+
+/* Grid pemisah Bahan & Cara Membuat di PC */
+.recipe-layout-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 20px;}
+@media (min-width: 768px) {
+    .recipe-layout-grid { grid-template-columns: 1fr 2fr; }
 }
 
-/* Header dan Navigasi */
-header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1rem 0;    
-    z-index: 1000;
+/* Judul bagian resep */
+.recipe-ingredients h2, .recipe-instructions h2, .recipe-video h2 { 
+    color: #d35400; 
+    margin-bottom: 15px; 
+    font-size: 1.5rem; 
+    border-bottom: 3px solid #ffe0b2; 
+    padding-bottom: 5px; 
+    display: inline-block;
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Kotak list Bahan-bahan */
+.ingredients-list { list-style: none; background: #fffaf0; padding: 25px; border-radius: 12px; border: 1px solid #ffe0b2; }
+.ingredients-list li { padding: 10px 0; border-bottom: 1px dashed #e0e0e0; font-size: 1rem; }
+.ingredients-list li:last-child { border-bottom: none; }
+.ingredients-list li strong { color: #d35400; font-weight: 700; display: inline-block; min-width: 70px;}
+
+/* TEKS INSTRUKSI MEMASAK (Telah Diperbaiki untuk List Angka) */
+.instructions-text { 
+    text-align: left; /* Wajib rata kiri agar format nomor (1. 2.) tidak berantakan spasi-nya */
+    color: #444; 
+}
+.step-item {
+    margin-bottom: 12px; /* Jarak antar paragraf lebih sempit dan padat */
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
-.logo {
-    font-size: 1.8rem;
-    color: #ff6f61; /* Warna utama baru */
-    font-weight: 700;
-}
-
-.logo-link {
-    text-decoration: none;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover, nav ul li a.active {
-    color: #ff6f61; /* Warna utama baru */
-}
-
-/* Konten Utama */
-main {
-    padding: 2rem 0;
-}
-
-.hero {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    color: #777;
-}
-
-.content-grid {
-    display: grid;
-    /* Menampilkan 5 kolom di layar besar */
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px; /* Sedikit mengurangi gap agar pas */
-}
-
-/* Kartu Konten */
-.content-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+/* KOTAK EMBED VIDEO YOUTUBE RESPONSIF */
+.recipe-video { margin-top: 35px; }
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background-color: #000;
 }
-
-.content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-
-.content-card img {
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    display: block;
-    background-color: #eee;
+    height: 100%;
+    border: 0;
 }
 
-.content-card-body {
-    padding: 1rem;
+.related-posts-section { margin: 40px 0; }
+.loader { text-align: center; padding: 30px; font-size: 1.1rem; font-weight: 600; color: #666; }
+footer { background-color: #222; color: #fff; text-align: center; padding: 20px 0; margin-top: 40px; font-size: 0.95rem; }
+
+/* ================================================= */
+/* RESPONSIVE DESIGN (MOBILE & TABLET)               */
+/* ================================================= */
+@media screen and (max-width: 768px) {
+    header { padding: 10px 0; }
+    header .container { flex-direction: column; justify-content: center; gap: 8px; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 0; }
+    .hero { padding: 1.5rem 0; margin-bottom: 1rem; }
+    .hero h1 { font-size: 1.6rem; }
+    .content-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .content-card img { height: 150px; }
+    .main-article { padding: 20px; margin: 15px 0; }
+    .main-article h1 { font-size: 1.6rem; }
+    .detail-image img { max-height: 300px; }
+    .recipe-layout-grid { gap: 25px; }
+    .ingredients-list { padding: 15px; }
+    .step-item { font-size: 1rem; margin-bottom: 10px; }
 }
-
-.content-card-body h3 {
-    font-size: 1.1rem;
-    margin: 0;
-    line-height: 1.4;
-}
-
-.content-card a {
-    text-decoration: none;
-    color: #333;
-}
-
-/* Loader untuk Infinite Scroll */
-.loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #ff6f61; /* Warna utama baru */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto;
-    display: none;
-}
-
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-/* Footer */
-footer { text-align: center; padding: 2rem 0; margin-top: 2rem; background-color: #333; color: #fff; }
-
-/* --- MOBILE MENU & RESPONSIVE STYLES --- */
-.nav-toggle { display: none; }
-.nav-toggle-label { display: none; cursor: pointer; width: 30px; height: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after { display: block; background-color: #333; height: 3px; width: 25px; border-radius: 2px; position: relative; transition: all 0.3s ease-in-out; }
-.nav-toggle-label span::before, .nav-toggle-label span::after { content: ''; position: absolute; }
-.nav-toggle-label span::before { top: -8px; }
-.nav-toggle-label span::after { top: 8px; }
-.nav-toggle:checked + .nav-toggle-label span { background-color: transparent; }
-.nav-toggle:checked + .nav-toggle-label span::before { transform: rotate(45deg); top: 0; }
-.nav-toggle:checked + .nav-toggle-label span::after { transform: rotate(-45deg); top: 0; }
-
-/* ▼▼▼ PERUBAHAN DI SINI: Penyesuaian responsif untuk grid 5 kolom ▼▼▼ */
-@media (max-width: 1200px) {
-    .content-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk tablet */
-    }
-}
-
-@media (max-width: 992px) {
-    .content-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk tablet kecil */
-    }
-}
-
-@media (max-width: 768px) {
-    .container { padding: 0 15px; }
-    .logo { font-size: 1.5rem; }
-    .nav-toggle-label { display: flex; }
-    nav { position: absolute; top: 100%; left: 0; width: 100%; background-color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transform: scaleY(0); transform-origin: top; transition: transform 0.3s ease-in-out; }
-    nav ul { flex-direction: column; padding: 1rem 0; }
-    nav ul li { width: 100%; text-align: center; margin-left: 0; }
-    nav ul li a { padding: 1rem; display: block; }
-    .nav-toggle:checked ~ nav { transform: scaleY(1); }
-    .hero h2, .main-article h1 { font-size: 1.8rem; }
-    .hero p, .article-content p { font-size: 1rem; }
-    .main-article { padding: 1.5rem; }
-    .section-title { font-size: 1.5rem; }
-    .download-buttons-container { flex-direction: column; width: 100%; }
-    .tool-input { width: 100%; }
-    
-    .content-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .content-grid {
-        grid-template-columns: 1fr; /* 1 kolom untuk layar sangat kecil */
-    }
-}
-
-/* --- Styles untuk Halaman Detail --- */
-.main-article { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 3rem; }
-.main-article h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1.5rem; }
-.detail-image { margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-.detail-image img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    border-radius: 8px;
-    background-color: #eee;
-}
-.article-content { margin-top: 2rem; }
-.article-content p { font-size: 1.1rem; margin-bottom: 1.5rem; color: #444; }
-.article-content strong { color: #ff6f61; } /* Warna utama baru */
-.section-title { font-size: 2rem; text-align: center; margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
-
-/* --- Style untuk Tombol Download --- */
-.download-buttons-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; }
-/* ▼▼▼ PERUBAHAN DI SINI: Tombol dibuat lebih lebar ▼▼▼ */
-.download-button { 
-    display: inline-block; 
-    background-color: #ff6f61; /* Warna utama baru */ 
-    color: #fff; 
-    padding: 0.8rem 1rem; /* Padding diatur ulang */
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-weight: 600; 
-    text-align: center; 
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-    border: none; 
-    cursor: pointer;
-    flex: 1; /* Membuat tombol meregang mengisi ruang yang tersedia */
-    max-width: 250px; /* Batas lebar maksimum agar tidak terlalu lebar di layar besar */
-}
-.download-button:hover { background-color: #e65a50; /* Warna utama baru - hover */ transform: scale(1.05); }
-
-@media (min-width: 769px) { .nav-toggle-label { display: none !important; } nav { display: block; } }
-
-/* --- Style Tambahan untuk Halaman Tool --- */
-.tool-container { text-align: center; padding: 2rem; }
-.tool-description { max-width: 600px; margin: 0 auto 2rem auto; color: #555; line-height: 1.8; }
-.tool-settings { display: flex; justify-content: center; align-items: center; gap: 2rem; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; flex-wrap: wrap; }
-.setting-item { display: flex; flex-direction: column; align-items: flex-start; }
-.setting-item label { font-weight: 600; margin-bottom: 0.5rem; color: #555; }
-.tool-input { padding: 0.7rem; font-size: 1rem; border-radius: 5px; border: 1px solid #ccc; width: 200px; }
-.tool-button { background-color: #28a745; color: #fff; border: none; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; }
-.tool-button:hover:not(:disabled) { background-color: #218838; transform: scale(1.05); }
-.tool-button:disabled { background-color: #aaa; cursor: not-allowed; }
-.tool-status { margin-top: 2rem; padding: 1rem; background-color: #e9ecef; border-radius: 5px; font-family: monospace; font-size: 1rem; }
